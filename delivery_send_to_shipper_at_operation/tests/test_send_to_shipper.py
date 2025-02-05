@@ -15,7 +15,7 @@ class TestDeliverySendToShipper(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True, set_default_package=False))
         cls.wh = cls.env.ref("stock.warehouse0")
         cls.wh.delivery_steps = "pick_pack_ship"
         cls.stock_location = cls.env.ref("stock.stock_location_stock")
